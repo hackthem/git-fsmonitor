@@ -20,7 +20,7 @@ git init
 git config core.fsmonitor ./icons/icons.sh
 
 ```
-** Optionnel : **  (ce script a déjà été lancé et son contenu est intégré au GIT) :
+**Optionnel:**  (ce script a déjà été lancé et son contenu est intégré au GIT) :
 
 ```bash
 #!/bin/bash
