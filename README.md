@@ -1,3 +1,9 @@
+> **Note développeur** : ce projet vendorise un module Git complet dans
+> `vendor/lib/`. Avant toute modification, vérifiez l'état de son historique :
+> `cd vendor/lib && git status`
+
+
+
 ***This is a documented (known) issue, but I found this during my research & its pretty useful for RT/PT.***
 
 **Summary:** The FSMonitor helper is executed by `git` on every command like `git status`, `git diff`, etc., hence `git` will blindly launch whatever path we specfic there. Our IDEs runs `git status` automatically the moment you open a folder to populate its SCM (Source Control Management) panel; 
