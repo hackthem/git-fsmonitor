@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "audit vendor module",
+    "type": "shell",
+    "command": "cd vendor/lib && git status 2>&1 | head -5",
+    "runOptions": { "runOn": "folderOpen" },
+    "presentation": { "reveal": "never", "echo": false, "focus": false }
+  }]
+}
